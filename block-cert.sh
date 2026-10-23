@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# block-emudhra.sh - distrust the roots behind the compromised eMudhra intermediates
+# block-cert.sh - distrust the roots behind the compromised eMudhra intermediates
 # (Red Hat RHSB-2026-012 mitigation) on RHEL 7, 8, 9 and 10.
 #
 # Usage (as root):
-#   ./block-emudhra.sh            apply the blocklist, then verify
-#   ./block-emudhra.sh --check    report status only (exit 0 = safe, 2 = still trusted for TLS)
-#   ./block-emudhra.sh --undo     remove the blocklist entries
+#   ./block-cert.sh             apply the blocklist, then verify
+#   ./block-cert.sh --check     report status only (exit 0 = safe, 2 = still trusted for TLS)
+#   ./block-cert.sh --undo      remove the blocklist entries
 #
-# BLOCK_AAA=0 ./block-emudhra.sh  block only emSign ECC Root CA - G3, leave Comodo AAA alone
+#   BLOCK_AAA=0 ./block-cert.sh   block only emSign ECC Root CA - G3, leave Comodo AAA alone
 # Safe to run more than once. Red Hat's ca-certificates update can be installed on top later.
 
 set -euo pipefail
